@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports
+              http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="AlumnosBonito"
+              pageWidth="595"
+              pageHeight="842"
+              columnWidth="555"
+              leftMargin="20"
+              rightMargin="20"
+              topMargin="20"
+              bottomMargin="20">
+
+    <!-- Campos -->
+    <field name="id" class="java.lang.Integer"/>
+    <field name="nombre" class="java.lang.String"/>
+    <field name="apellidos" class="java.lang.String"/>
+    <field name="anioNacimiento" class="java.lang.Integer"/>
+    <field name="direccion" class="java.lang.String"/>
+    <field name="curso" class="java.lang.String"/>
+    <field name="tutor" class="java.lang.String"/>
+
+    <!-- ===================== -->
+    <!-- TÍTULO -->
+    <!-- ===================== -->
+    <title>
+        <band height="70">
+
+            <!-- Título -->
+            <textField>
+                <reportElement x="0" y="0" width="555" height="30"/>
+                <textElement textAlignment="Center">
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Listado de Alumnos"]]></textFieldExpression>
+            </textField>
+
+            <!-- Subtítulo -->
+            <textField>
+                <reportElement x="0" y="30" width="555" height="20"/>
+                <textElement textAlignment="Center">
+                    <font size="11"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Centro educativo — Curso académico"]]></textFieldExpression>
+            </textField>
+
+            <!-- Fecha -->
+            <textField>
+                <reportElement x="400" y="55" width="155" height="15"/>
+                <textElement textAlignment="Right">
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Fecha: " + new java.util.Date()]]></textFieldExpression>
+            </textField>
+
+        </band>
+    </title>
+
+    <!-- ===================== -->
+    <!-- CABECERA DE COLUMNAS -->
+    <!-- ===================== -->
+    <columnHeader>
+        <band height="20">
+
+            <rectangle>
+                <reportElement x="0" y="0" width="555" height="20" backcolor="#E0E0E0"/>
+            </rectangle>
+
+            <staticText>
+                <reportElement x="0" y="0" width="30" height="20"/>
+                <textElement><font isBold="true"/></textElement>
+                <text><![CDATA[ID]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement x="35" y="0" width="80" height="20"/>
+                <textElement><font isBold="true"/></textElement>
+                <text><![CDATA[Nombre]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement x="120" y="0" width="120" height="20"/>
+                <textElement><font isBold="true"/></textElement>
+                <text><![CDATA[Apellidos]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement x="245" y="0" width="80" height="20"/>
+                <textElement><font isBold="true"/></textElement>
+                <text><![CDATA[Curso]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement x="330" y="0" width="120" height="20"/>
+                <textElement><font isBold="true"/></textElement>
+                <text><![CDATA[Tutor]]></text>
+            </staticText>
+
+        </band>
+    </columnHeader>
+
+    <!-- ===================== -->
+    <!-- DETALLE -->
+    <!-- ===================== -->
+    <detail>
+        <band height="20">
+
+            <!-- Fondo alterno -->
+            <rectangle>
+                <reportElement x="0" y="0" width="555" height="20">
+                    <printWhenExpression><![CDATA[$V{REPORT_COUNT} % 2 == 0]]></printWhenExpression>
+                </reportElement>
+                <graphicElement>
+                    <pen lineWidth="0.0"/>
+                </graphicElement>
+            </rectangle>
+
+            <textField>
+                <reportElement x="0" y="0" width="30" height="20"/>
+                <textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="35" y="0" width="80" height="20"/>
+                <textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="120" y="0" width="120" height="20"/>
+                <textFieldExpression><![CDATA[$F{apellidos}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="245" y="0" width="80" height="20"/>
+                <textFieldExpression><![CDATA[$F{curso}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="330" y="0" width="120" height="20"/>
+                <textFieldExpression><![CDATA[$F{tutor}]]></textFieldExpression>
+            </textField>
+
+        </band>
+    </detail>
+
+</jasperReport>
